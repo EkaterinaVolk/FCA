@@ -1,5 +1,43 @@
 @import './../../style/fonts';
 
+
+.container__header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin: 0px 20px 20px 20px;
+border-bottom: solid 1px $gray-color;
+}
+
+.logo__heart {
+    align-self: flex-end;
+}
+
+.logo__text {
+    margin: 0px 5px 5px 0px;
+    @extend %logo-font;
+    background-image: url(../../assets/pink-background.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .logo {
-    @extend %logo-font
+    display: flex;
+    justify-self: flex-start;
+    margin: 15px 0px 0px 20px;
+}
+
+.nav {
+    display: flex;
+    gap: 15px;
+    padding-right: 25px;
+}
+
+.nav-item {
+    @extend %text-font;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    color: $bright-pink-color;
 }
