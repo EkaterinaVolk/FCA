@@ -4,22 +4,36 @@
     @extend %header-wordlist-font;
     text-align: center;
     margin: 0px;
+    width: 100%;
 }
 
 .inputs-container__inputs {
 display: flex;
 align-items: center;
-
+height: 100px;
+width: 800px;
+justify-content: space-around;
 }
 
 .input {
 width: 100px;
 height: 30px;
-margin: 20px;
 padding: 0px;
 }
 
-.button__inputs {
-    width: 100px;
-    height: 30px;
+.button__inputs  {
+    background-image: url(../../assets/red.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    width: 150px;
+    height: 50px;
+    background-color: white;
+    @extend %button-font;
+}
+
+.button__inputs:hover {
+    background-image: url(../../assets/pink.svg);
+    
 }

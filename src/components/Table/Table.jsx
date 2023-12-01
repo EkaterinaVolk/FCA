@@ -6,10 +6,13 @@ export default function Table(props) {
   return (
     <div className='container__table'>
         <div className="words-container__table">
-            <p className='cell__table'>{props.english}</p>
-            <p className='cell__table'>{props.translation}</p>
-            <p className='cell__table'>{props.transcription}</p>
-            <p className='cell__table'>{props.tags}</p>
+            <div className='cell__table'>{props.english}</div>
+            <div className='cell__table'>{props.translation}</div>
+            <div className='cell__table'>{props.transcription}</div>
+            <div className='cell__table'>{props.tags}</div>
+            <button className='save-button__table'>save</button>
+            <button className='change-button__table'>change</button>
+            <button className='delete-button__table'>del</button>
         </div>
     </div>
   )

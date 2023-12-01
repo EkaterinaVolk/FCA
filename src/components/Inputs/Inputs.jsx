@@ -12,6 +12,7 @@ export default function Inputs() {
     <input className='input' type="text" placeholder='tag' />
     <button className='button__inputs'>Add</button>
 </div>
+<h3 className='header__inputs'>Wordlist</h3>
     </div>
   )
 }

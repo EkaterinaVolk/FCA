@@ -66,6 +66,7 @@ justify-content: space-around;
     height: 50px;
     border-radius: 15px;
     @extend %button-font;
+    background-color: $light-pink-color;
 }
 
 .button__card:hover {
