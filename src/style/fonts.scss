@@ -18,3 +18,48 @@
     line-height: normal;
     text-transform: uppercase;
 }
+
+%main-words-font {
+    font-family: Bangers, sans-serif;
+    color: $red-color;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+%transcription-font {
+    font-family: Montserrat, sans-serif;
+    color: $black-color;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+%tags-font {
+    font-family: Montserrat, sans-serif;
+    color: $black-color;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+%flip-font {
+    font-family: Montserrat, sans-serif;
+    color: $black-color;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+%button-font {
+        font-family: Bangers, sans-serif;
+        color: $white-color;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+}

@@ -12,9 +12,9 @@ export default function Header() {
 </svg></div>
 
         <div className="nav">
-            <a className="nav-item" href="#">Карточки</a>
-            <a className="nav-item" href="#">Играть</a>
-            <a className="nav-item" href="#">Слова</a>
+            <a className="nav-item" href="#">Cards</a>
+            <a className="nav-item" href="#">Play</a>
+            <a className="nav-item" href="#">Wordlist</a>
         </div>
     </div>
     </div>

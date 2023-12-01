@@ -1,0 +1,74 @@
+@import './../../style/fonts';
+
+.container__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    margin: 15px;
+    width: 450px;
+    height: 300px;
+    border: solid black 2px;
+    border-radius: 25px;
+    background-color: $light-pink-color;
+}
+
+.word__card {
+    margin: 0px;
+    @extend %main-words-font;
+}
+
+.translation__card {
+    display: none;
+    margin: 0px;
+    @extend %main-words-font;
+
+}
+
+.transcription__card {
+    margin: 0px;
+    @extend %transcription-font;
+}
+
+.tags__card {
+    align-self: flex-end;
+    padding-right: 15px;
+    @extend %tags-font;
+}
+
+.button-flip {    
+    align-self: flex-end;
+    width: 100px;
+    height: 50px;
+    @extend %flip-font;
+    border: none;
+    border-radius: 25px;
+    background-color: $light-pink-color;
+}
+
+.button-flip:hover {
+    color: $white-color;
+}
+
+.container__buttons {
+display: flex;
+justify-content: space-around;
+}
+
+.button__card {
+    background-image: url(../../assets/red.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    margin-top: 20px;
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    @extend %button-font;
+}
+
+.button__card:hover {
+    background-image: url(../../assets/pink.svg);
+    
+}
