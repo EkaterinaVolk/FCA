@@ -1,0 +1,11 @@
+@import './../../style/fonts';
+
+.words-container__table{
+    display: flex;
+    border-bottom: solid $gray-color 1px;
+}
+
+.cell__table {
+padding: 10px;
+margin: 0px;
+}
