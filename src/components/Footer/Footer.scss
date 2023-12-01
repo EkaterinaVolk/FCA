@@ -1,0 +1,13 @@
+@import './../../style/fonts';
+
+.container__footer {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 70px;
+    background-color: $bright-pink-color;
+}
+
+.telegram__footer {
+    margin-right: 50px;
+}
