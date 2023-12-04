@@ -8,26 +8,26 @@ import { useState } from 'react';
 
 
 function Main() {
-  const [flag, setFlag] = useState(true);
+  const [change, setChange] = useState(false);
 
-  function editFlag() {
-    setFlag(!flag)
-  }
 
+
+  const handleChangeState = () => {setChange(!change)} 
+ 
   return (
     <div className='container__main'>
     {wordlist.map((word) =>
     <Card english={word.english} tags={word.tags} translation={word.translation} transcription={word.transcription}/>)}
     <Inputs/>
-        <button onClick={editFlag}>Change</button>
+        <button onClick={handleChangeState}>Change</button>
 
 {/* Вот это не работает */}
 
-      {wordlist.map((word) => {flag ?  <Table english={word.english} tags={word.tags} translation={word.translation} transcription={word.transcription}/> :  <EditedTable english={word.english} tags={word.tags} translation={word.translation} transcription={word.transcription}/>})}
+      {wordlist.map((word) => {change ?  <Table english={word.english} tags={word.tags} translation={word.translation} transcription={word.transcription}/> :  <EditedTable english={word.english} tags={word.tags} translation={word.translation} transcription={word.transcription}/>})}
 
 {/* А вот это работает */}
 
-   {/* { flag ? <button>click</button>  : <Inputs/>} */}
+   {/* { change ? <button>click</button>  : <Inputs/>} */}
 
     </div>
   )
