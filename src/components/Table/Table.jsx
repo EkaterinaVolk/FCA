@@ -10,7 +10,6 @@ export default function Table(props) {
             <div className='cell__table'>{props.translation}</div>
             <div className='cell__table'>{props.transcription}</div>
             <div className='cell__table'>{props.tags}</div>
-            <button className='save-button__table'>save</button>
             <button className='change-button__table'>change</button>
             <button className='delete-button__table'>del</button>
         </div>
