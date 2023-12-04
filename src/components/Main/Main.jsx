@@ -8,11 +8,11 @@ import wordlist from '../Card/wordlist.json';
 function Main() {
   return (
     <div className='container__main'>
-            {wordlist.map((word) =>
-        <Card english={word.english} tags={word.tags} translation={word.translation} transcription={word.transcription}/>)}
+            {wordlist.map((word, index) =>
+        <Card key={index} {...word}/>)}
     <Inputs/>
-    {wordlist.map((word) =>
-    <Table english={word.english} tags={word.tags} translation={word.translation} transcription={word.transcription}/>)}
+    {wordlist.map((word, index) =>
+    <Table key={index} {...word}/>)}
     </div>
   )
 }
