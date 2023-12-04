@@ -14,6 +14,8 @@ function Card(props) {
             ? <div>
             <h4 className="word__card">{props.english}</h4>
             <p className="transcription__card">{props.transcription}</p>
+
+
             <div className="container__buttons">
             <button className="button__card">One more time</button>
             <button className="button__card">Know</button>

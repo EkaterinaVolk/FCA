@@ -12,6 +12,7 @@ function Main() {
     <Card key={index} {...word}/>)}
     <Inputs/>
     {wordlist.map((word, index) =>  <Table key={index} {...word}/>)}
+
     </div>
   )
 }
