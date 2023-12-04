@@ -14,12 +14,13 @@
 }
 
 .word__card {
+    height: 50px;
     margin: 0px;
     @extend %main-words-font;
 }
 
 .translation__card {
-    display: none;
+    height: 50px;
     margin: 0px;
     @extend %main-words-font;
 

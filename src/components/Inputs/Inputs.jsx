@@ -1,6 +1,5 @@
 import './Inputs.scss';
 
-
 export default function Inputs() {
   return (
     <div className='container__inputs'>
