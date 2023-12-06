@@ -45,6 +45,7 @@
     border: none;
     border-radius: 25px;
     background-color: $light-pink-color;
+    cursor: pointer;
 }
 
 .button-flip:hover {
@@ -54,6 +55,7 @@
 .container__buttons {
 display: flex;
 justify-content: space-around;
+cursor: pointer;
 }
 
 .button__card {
@@ -68,6 +70,7 @@ justify-content: space-around;
     border-radius: 15px;
     @extend %button-font;
     background-color: $light-pink-color;
+    cursor: pointer;
 }
 
 .button__card:hover {

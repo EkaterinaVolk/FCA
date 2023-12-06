@@ -1,3 +1,5 @@
+@import './../../style/fonts';
+
 .container__main {
     display: flex;
     flex-direction: column;
@@ -6,4 +8,11 @@
 
 .container__main-cards {
     display: flex;
+}
+
+.button__main {
+    border: none;
+    background-color: $white-color;
+    width: 100px;
+    cursor: pointer;
 }
