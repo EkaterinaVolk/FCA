@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import './Inputs.scss';
 
-
-
 export default function Inputs({wordlist, setWordlist}) {
 
   const [inputOne, setInputOne] = useState('');
@@ -22,7 +20,6 @@ export default function Inputs({wordlist, setWordlist}) {
 
       setWordlist(wordlist.push(newWord));
       console.log(wordlist);
-
   }
   
   return (
