@@ -18,6 +18,7 @@ export default function Table(props) {
         <input className='cell__table' placeholder={props.transcription}></input>
         <input className='cell__table' placeholder={props.tags}></input>
         <button className='save-button__table' onClick={handleChangeState}>save</button>
+        <button className='cancel-button__table' onClick={handleChangeState}>cancel</button>
         </div>
         : <div className="words-container__table">
         <div className='cell__table'>{props.english}</div>
