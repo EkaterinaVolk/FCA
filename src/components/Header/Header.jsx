@@ -1,4 +1,5 @@
 import './Header.scss';
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -12,9 +13,19 @@ export default function Header() {
 </svg></div>
 
         <div className="nav">
-            <a className="nav-item" href="#">Cards</a>
-            <a className="nav-item" href="#">Play</a>
-            <a className="nav-item" href="#">Wordlist</a>
+        <nav >
+          <ul>
+            <li className="nav-li">
+              <Link className="nav-item" to="/">Cards</Link>
+            </li>
+            <li className="nav-li">
+              <Link className="nav-item"to="/wordlist">Wordlist</Link>
+            </li>
+            <li className="nav-li">
+              <Link className="nav-item"to="/add">Add</Link>
+            </li>
+          </ul>
+        </nav>
         </div>
     </div>
     </div>

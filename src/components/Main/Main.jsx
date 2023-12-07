@@ -32,7 +32,7 @@ function Main({wordlist, setWordlist, index=0}) {
 </svg></button>
     <Card tags={wordlist[cardIndex].tags} english={wordlist[cardIndex].english} translation={wordlist[cardIndex].translation} transcription={wordlist[cardIndex].transcription}/>
     <button className="button__main" onClick={nextCard}><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 14 12" fill="none">
-  <g clip-path="url(#clip0_47_7082)">
+  <g clipPath="url(#clip0_47_7082)">
     <path d="M5.01188 -0.273212C7.7523 1.45415 10.3391 3.39371 12.7722 5.54544C13.3343 6.02441 12.9892 7.04679 12.3664 7.30666C9.39835 8.62243 6.76941 10.5068 4.20983 12.5138C3.45657 13.1175 2.56316 12.1138 3.25479 11.4314C5.29128 9.43745 7.58201 7.80185 9.9805 6.23571C7.97098 4.59042 5.83849 3.06039 3.63693 1.68033C2.35141 0.890682 3.72636 -1.06286 5.01188 -0.273212Z" fill="#1F1F1F"/>
   </g>
   <defs>
@@ -42,7 +42,6 @@ function Main({wordlist, setWordlist, index=0}) {
   </defs>
 </svg></button>
     </div>
-    <Inputs wordlist={wordlist} setWordlist={setWordlist}/>
     {wordlist.map((word, index) =>  <Table key={index} {...word}/>)}
 
     </div>
