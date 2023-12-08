@@ -16,5 +16,15 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'react/prop-types': 0,
   },
-}
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData: `
+          @use '@/styles/mixins.scss' as *;
+        `,
+      },
+    },
+  },
+};

@@ -16,3 +16,10 @@ margin: 0px;
     width: 70px;
     cursor: pointer;
 }
+
+.header__table {
+    @extend %header-wordlist-font;
+    text-align: center;
+    margin: 0px;
+    width: 100%;
+}

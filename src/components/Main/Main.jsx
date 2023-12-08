@@ -1,7 +1,5 @@
 import './Main.scss';
 import Card from '../Card/Card.jsx'
-import Table from '../Table/Table.jsx'
-import Inputs from '../Inputs/Inputs.jsx'
 import { useState } from 'react';
 
 
@@ -42,8 +40,6 @@ function Main({wordlist, setWordlist, index=0}) {
   </defs>
 </svg></button>
     </div>
-    {wordlist.map((word, index) =>  <Table key={index} {...word}/>)}
-
     </div>
   )
 }

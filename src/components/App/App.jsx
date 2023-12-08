@@ -2,8 +2,7 @@ import '../../style/normalize.css';
 import './App.scss';
 import Header from '../Header/Header.jsx';
 import Inputs from '../Inputs/Inputs.jsx';
-import Card from '../Card/Card.jsx';
-import Table from '../Table/Table.jsx';
+import Wordlist from '../Wordlist/Wordlist.jsx';
 import Main from '../Main/Main.jsx';
 import Footer from '../Footer/Footer.jsx';
 import { useState } from 'react';
@@ -21,7 +20,8 @@ function App() {
       <Routes>
           <Route path="/" element={<Main wordlist={wordlist} setWordlist={setWordlist}/>} />
           <Route path="/add" element={<Inputs wordlist={wordlist} setWordlist={setWordlist}/>} />
-          <Route path="/wordlist" element={<Table />} />
+
+          <Route path="/wordlist" element={<Wordlist wordlist={wordlist} setWordlist={setWordlist} />} />
         </Routes>
       <Footer/>
     </div>
