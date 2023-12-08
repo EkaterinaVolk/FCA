@@ -1,5 +1,10 @@
 @import './../../style/fonts';
 
+
+.container__inputs {
+    flex-grow: 1;
+    padding-top: 100px;
+}
 .header__inputs {
     @extend %header-wordlist-font;
     text-align: center;

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <div className="header">
     <div className="container__header">
             <div className="logo">
           <h1 className="logo__text">love cards</h1>
@@ -13,21 +12,10 @@ export default function Header() {
 </svg></div>
 
         <div className="nav">
-        <nav >
-          <ul>
-            <li className="nav-li">
               <Link className="nav-item" to="/">Cards</Link>
-            </li>
-            <li className="nav-li">
               <Link className="nav-item"to="/wordlist">Wordlist</Link>
-            </li>
-            <li className="nav-li">
-              <Link className="nav-item"to="/add">Add</Link>
-            </li>
-          </ul>
-        </nav>
+             <Link className="nav-item"to="/add">Add</Link>
         </div>
-    </div>
     </div>
   )
 }
