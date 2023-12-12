@@ -1,14 +1,14 @@
 @import './../../style/fonts';
 
 .words-container__table{
-   display: flex;
+    display: flex;
     border-bottom: solid $gray-color 1px;
 }
 
 .cell__table {
     width: 150px;
-padding: 0px;
-margin: 0px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .change-button__table,
