@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
+    <div className="header">
     <div className="container__header">
-            <div className="logo">
+          <div className="logo">
           <h1 className="logo__text">love cards</h1>
           <svg className="logo__heart" xmlns="http://www.w3.org/2000/svg" width="26" height="24" viewBox="0 0 26 24" fill="none">
   <path d="M21.5 3.99982C17.5 2.39982 13.8333 6.66649 12.5 8.99982C12 7.33315 10.9 3.69986 10.5 2.50004C10 1.00026 5 -0.499958 2 1.50004C-0.999999 3.50004 1.5 7.00004 2 10.5C2.5 14 8.5 22.5 9 23C9.4 23.4 10.5 23.1667 11 23C12.6 21 21 13.8334 25 10.5C25.5 8.99997 25.5 5.59982 21.5 3.99982Z" fill="#F40000"/>
@@ -16,6 +17,7 @@ export default function Header() {
               <Link className="nav-item"to="/wordlist">Wordlist</Link>
              <Link className="nav-item"to="/add">Add</Link>
         </div>
+    </div>
     </div>
   )
 }

@@ -1,8 +1,14 @@
 @import './../../style/fonts';
 
+
+.header {
+display: flex;
+justify-content: center;
+}
 .container__header {
     position: fixed;
     width: 80%;
+    max-width: 1000px;
     height: 100px;
 display: flex;
 align-items: center;

@@ -5,6 +5,7 @@ import Inputs from '../Inputs/Inputs.jsx';
 import Wordlist from '../Wordlist/Wordlist.jsx';
 import Main from '../Main/Main.jsx';
 import Footer from '../Footer/Footer.jsx';
+import NoMatch from '../NoMatch/NoMatch.jsx';
 import { useState } from 'react';
 import wordlistJson from '../Card/wordlist.json';
 import {  BrowserRouter as Router, Routes, Route, } from "react-router-dom";
@@ -20,8 +21,8 @@ function App() {
       <Routes>
           <Route path="/" element={<Main wordlist={wordlist} setWordlist={setWordlist}/>} />
           <Route path="/add" element={<Inputs wordlist={wordlist} setWordlist={setWordlist}/>} />
-
           <Route path="/wordlist" element={<Wordlist wordlist={wordlist} setWordlist={setWordlist} />} />
+          <Route path="*" element={<NoMatch />} />
         </Routes>
       <Footer/>
     </div>
