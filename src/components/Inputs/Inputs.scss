@@ -2,28 +2,26 @@
 
 
 .container__inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex-grow: 1;
     padding-top: 100px;
-}
-.header__inputs {
-    @extend %header-wordlist-font;
-    text-align: center;
-    margin: 0px;
-    width: 100%;
 }
 
 .inputs-container__inputs {
     display: flex;
     align-items: center;
-    height: 100px;
+    height: 50px;
     width: 800px;
     justify-content: space-around;
 }
 
 .input {
-    width: 100px;
+    width: 120px;
     height: 30px;
     padding: 0px;
+    @extend %table-font
 }
 
 .button__inputs  {

@@ -1,4 +1,8 @@
 .container__wordlist {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
     flex-grow: 1;
     padding-top: 100px;
 }
+

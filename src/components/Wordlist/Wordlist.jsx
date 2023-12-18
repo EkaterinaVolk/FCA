@@ -6,7 +6,7 @@ import Table from '../Table/Table';
 export default function Wordlist({wordlist, setWordlist}) {
   return (
     <div className='container__wordlist'>
-        <Heading text="Wordlist"/>
+        <Heading className='container__wordlist-heading' text="Wordlist"/>
         {wordlist.map((word, index) =>  <Table key={index} {...word}/>)}
     </div>
   )

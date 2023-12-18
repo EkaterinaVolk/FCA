@@ -13,10 +13,10 @@ export default function Table(props) {
         <div className="words-container__table">
         {change 
         ? <div className="words-container__table">
-        <input className='cell__table' placeholder={props.english}></input>
-        <input className='cell__table' placeholder={props.translation}></input>
-        <input className='cell__table' placeholder={props.transcription}></input>
-        <input className='cell__table' placeholder={props.tags}></input>
+        <input className='cell__table-input' placeholder={props.english}></input>
+        <input className='cell__table-input' placeholder={props.translation}></input>
+        <input className='cell__table-input' placeholder={props.transcription}></input>
+        <input className='cell__table-input' placeholder={props.tags}></input>
         <button className='save-button__table' onClick={handleChangeState}>save</button>
         <button className='cancel-button__table' onClick={handleChangeState}>cancel</button>
         </div>
