@@ -13,8 +13,8 @@ function Card(props) {
 
 
             <div className="container__buttons">
-            <button className="button__card">One more time</button>
-            <button className="button__card">Know</button>
+            <button className="button__card" onClick={props.handleFlipState}>Translation</button>
+            <button className="button__card" onClick={props.nextCard}>Know</button>
             </div>
               </div>
             : <h4 className="translation__card">{props.translation}</h4>}         
