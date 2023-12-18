@@ -7,6 +7,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    text-shadow: 1px 1px 2px $gray-color;    
 }
 
 %text-font {
@@ -26,6 +27,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    text-shadow: 1px 1px 2px $gray-color;
 }
 
 %transcription-font {
@@ -61,6 +63,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    text-shadow: 1px 1px 2px $gray-color;
 }
 
 %header-wordlist-font {
@@ -70,6 +73,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    text-shadow: 1px 1px 2px $red-color;
 }
 
 %table-font {
@@ -106,4 +110,14 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+
+%score-font {
+    font-family: Bangers, sans-serif;
+    color: $bright-pink-color;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-shadow: 1px 1px 2px $red-color;
 }
