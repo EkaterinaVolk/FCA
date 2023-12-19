@@ -77,3 +77,8 @@
     background-image: url(../../assets/pink.svg);
     
 }
+
+.button__card:focus {
+    outline: none;
+    text-decoration: underline;
+}
