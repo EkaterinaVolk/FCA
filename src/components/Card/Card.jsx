@@ -1,6 +1,13 @@
 import './Card.scss';
+import { useEffect, useRef } from 'react';
 
 export default function Card(props) {
+
+  const btnElem = useRef();
+
+  useEffect(() => {
+    btnElem.current.focus()
+  }, [])
 
   function knowAndNextCard() {
     props.nextCard();
@@ -16,7 +23,7 @@ export default function Card(props) {
             <p className="transcription__card">{props.transcription}</p>
 
             <div className="container__buttons">
-            <button className="button__card" onClick={props.handleFlipState}>Translation</button>
+            <button className="button__card" ref={btnElem} onClick={props.handleFlipState}>Translation</button>
             <button className="button__card" onClick={knowAndNextCard}>Know</button>
             </div>
               </div>
