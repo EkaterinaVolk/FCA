@@ -2,11 +2,6 @@ import './Card.scss';
 
 export default function Card(props) {
 
-  function knowAndNextCard() {
-    props.nextCard();
-    props.handleScoreState();
-  }
-
     return (
             <div className="container__card">
             <p className="tags__card">#{props.tags}</p>
@@ -16,8 +11,8 @@ export default function Card(props) {
             <p className="transcription__card">{props.transcription}</p>
 
             <div className="container__buttons">
-            <button className="button__card" onClick={props.handleFlipState}>Translation</button>
-            <button className="button__card" onClick={knowAndNextCard}>Know</button>
+            <button ref={props.translationButton} className="button__card" onClick={() => {props.handleFlipState()}}>Translation</button>
+            <button className="button__card" onClick={() => {props.nextCard(); props.handleScoreState()}}>Know</button>
             </div>
               </div>
             : <h4 className="translation__card">{props.translation}</h4>}         
