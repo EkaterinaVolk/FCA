@@ -14,6 +14,25 @@ function App() {
 
   const [wordlist, setWordlist] = useState(wordlistJson);
 
+  function deleteWord(id) {
+    const newWordList = wordlist.filter(word => word.id != id)
+    setWordlist(newWordList)
+  }
+
+  function saveEditedWord(english, translation, trasctiption, tags, id) {
+    const editedWordList = wordlist.map(word => {
+      if (word.id === id) {
+        word.english = english;
+        word.transcription = trasctiption;
+        word.translation = translation;
+        word.tags = tags
+        return word
+      }
+      return word
+    })
+    setWordlist(editedWordList)
+  }
+
   return (
     <Router>
     <div className="container__app">
@@ -21,7 +40,7 @@ function App() {
       <Routes>
           <Route path="/" element={<Main wordlist={wordlist} setWordlist={setWordlist}/>} />
           <Route path="/add" element={<Inputs wordlist={wordlist} setWordlist={setWordlist}/>} />
-          <Route path="/wordlist" element={<Wordlist wordlist={wordlist} setWordlist={setWordlist} />} />
+          <Route path="/wordlist" element={<Wordlist saveEditedWord={saveEditedWord} deleteWord={deleteWord} wordlist={wordlist} setWordlist={setWordlist} />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       <Footer/>

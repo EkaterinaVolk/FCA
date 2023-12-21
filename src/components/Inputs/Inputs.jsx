@@ -18,8 +18,6 @@ export default function Inputs({wordlist, setWordlist}) {
         tags: inputFour
     };
 
-    // Вот здесь я пытаюсь записать новое слово в массив, оно записывается, но не появляется в App, откуда массив передаётся пропсами :( и страница просто пустой становится 
-
       setWordlist(wordlist.push(newWord));
       console.log(wordlist);
   }
