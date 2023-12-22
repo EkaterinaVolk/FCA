@@ -9,8 +9,22 @@ export default function Inputs({wordlist, setWordlist, addNewWord}) {
   const [inputTwo, setInputTwo] = useState('');
   const [inputThree, setInputThree] = useState('');
   const [inputFour, setInputFour] = useState('');
+  const [validateInputOne, setValidateInputOne] = useState('false')
+  const [validateInputTwo, setValidateInputTwo] = useState('false')
+  const [validateInputThree, setValidateInputThree] = useState('false')
+  const [validateInputFour, setValidateInputFour] = useState('false')
+
+  function handleValidate() {
+    if(!inputOne && !inputTwo && !inputThree && !inputFour) {
+      setValidateInputOne(true)
+      setValidateInputTwo(true)
+      setValidateInputThree(true)
+      setValidateInputFour(true)
+    }
+  }
 
   function addNewWordAndShowResult() {
+    handleValidate();
     if(inputOne && inputTwo && inputThree && inputFour) {
     addNewWord(inputOne, inputTwo, inputThree, inputFour)
     }
