@@ -1,9 +1,9 @@
 import './Table.scss';
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect, useContext } from 'react';
+import {WordlistContext} from '../App/WordlistContext.jsx'
 
 export default function Table(props) {
-
+  const {context, setContext} = useContext(WordlistContext)
  
   const [changeState, setChangeState] = useState(false);
   const handleChangeState = () => {setChangeState(!changeState)} 

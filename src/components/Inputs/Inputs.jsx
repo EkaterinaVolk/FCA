@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import './Inputs.scss';
 import Heading from '../Heading/Heading';
+import {WordlistContext} from '../App/WordlistContext.jsx'
 
-
-export default function Inputs({wordlist, setWordlist}) {
+export default function Inputs() {
+  const {context, setContext} = useContext(WordlistContext)
 
   const [inputOne, setInputOne] = useState('');
   const [inputTwo, setInputTwo] = useState('');
@@ -18,8 +19,8 @@ export default function Inputs({wordlist, setWordlist}) {
         tags: inputFour
     };
 
-      setWordlist(wordlist.push(newWord));
-      console.log(wordlist);
+    setContext(context.push(newWord));
+      console.log(context);
   }
   
   return (
