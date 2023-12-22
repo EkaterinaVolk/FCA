@@ -1,34 +1,29 @@
 import { useState, useEffect, createContext } from "react";
 export const WordlistContext = createContext();
 
-
-export function WordlistContextComponent({children}) {
-
+export function WordlistContextComponent({ children }) {
   const [context, setContext] = useState(false);
-  const value = {context, setContext}
+  const value = { context, setContext };
 
-   useEffect(() => {
+  useEffect(() => {
     getWordlist();
-  }, [])
+  }, []);
 
   async function getWordlist() {
-    try {        
-        const resp = await fetch('http://itgirlschool.justmakeit.ru/api/words');
-        const arrWords = await resp.json();
-        setContext(arrWords);
-    } catch(e) {
-        console.log('ошибка');
+    try {
+      const resp = await fetch("http://itgirlschool.justmakeit.ru/api/words");
+      const arrWords = await resp.json();
+      setContext(arrWords);
+    } catch (e) {
+      console.log("ошибка");
     }
   }
 
-if(!context)return<h1>Loading...</h1>
-
+  if (!context) return <h1>Loading...</h1>;
 
   return (
-    <WordlistContextComponent value={value}>
+    <WordlistContext.Provider value={value}>
       {children}
-    </WordlistContextComponent>
-
+    </WordlistContext.Provider>
   );
 }
-

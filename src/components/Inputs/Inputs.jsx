@@ -11,16 +11,27 @@ export default function Inputs() {
   const [inputThree, setInputThree] = useState('');
   const [inputFour, setInputFour] = useState('');
 
-  function addNewWord() {
-    let newWord = {
-        english: inputOne,
-        translation: inputTwo,
-        transcription: inputThree,
-        tags: inputFour
-    };
+  function addNewWord(english, russian, transcription, tags) {
+    const newWord = {        
+      english: english,
+      transcription: transcription,
+      russian: russian,
+      tags: tags
+    }
+    
+    const newWordList = [...context, newWord];
+    setContext(newWordList)
+  }
 
-    setContext(context.push(newWord));
-      console.log(context);
+  function addNewWordAndShowResult() {
+    if(inputOne && inputTwo && inputThree && inputFour) {
+    addNewWord(inputOne, inputTwo, inputThree, inputFour)
+    }
+    console.log(context)
+    setInputOne('')
+    setInputTwo('')
+    setInputThree('')
+    setInputFour('')
   }
   
   return (
@@ -28,10 +39,10 @@ export default function Inputs() {
        <Heading text="Add a new word"/>
 <div className="inputs-container__inputs">
     <input className='input' type="text" placeholder='word' value={inputOne} onChange={(event) => setInputOne(event.target.value)}/>
-    <input className='input' type="text" placeholder='translation' value={inputTwo} onChange={(event) => setInputTwo(event.target.value)}/>
+    <input className='input' type="text" placeholder='russian' value={inputTwo} onChange={(event) => setInputTwo(event.target.value)}/>
     <input className='input' type="text" placeholder='transcription' value={inputThree} onChange={(event) => setInputThree(event.target.value)}/>
     <input className='input' type="text" placeholder='tag' value={inputFour} onChange={(event) => setInputFour(event.target.value)}/>
-    <button type="submit" className='button__inputs' onClick={addNewWord}>Add</button>
+    <button type="submit" className='button__inputs' onClick={addNewWordAndShowResult}>Add</button>
 </div>
     </div>
   )

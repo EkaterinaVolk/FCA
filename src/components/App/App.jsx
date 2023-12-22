@@ -18,7 +18,7 @@ function App() {
       <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/add" element={<Inputs />} />
-          <Route path="/wordlist" element={<Wordlist saveEditedWord={saveEditedWord} deleteWord={deleteWord} />} />
+          <Route path="/wordlist" element={<Wordlist />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       <Footer/>

@@ -9,18 +9,18 @@ export default function Table(props) {
   const handleChangeState = () => {setChangeState(!changeState)} 
   
   const [english, setEnglish] = useState('')
-  const [translation, setTranslation] = useState('')
+  const [russian, setRussian] = useState('')
   const [transcription, setTranscription] = useState('')
   const [tags, setTags] = useState('')
   const [validateEnglish, setValidateEnglish] = useState('false')
-  const [validateTranslation, setValidateTranslation] = useState('false')
+  const [validateRussian, setValidateRussian] = useState('false')
   const [validateTranscription, setValidateTranscription] = useState('false')
   const [validateTags, setValidateTags] = useState('false')
 
   function handleValidate() {
-    if(!english && !translation && !transcription && !tags) {
+    if(!english && !russian && !transcription && !tags) {
       setValidateEnglish(true)
-      setValidateTranslation(true)
+      setValidateRussian(true)
       setValidateTranscription(true)
       setValidateTags(true)
     }
@@ -28,17 +28,22 @@ export default function Table(props) {
 
    function consoleLogAndClose(){
     handleValidate();
-    console.log(english, translation, transcription, tags);
-    props.saveEditedWord(english, translation, transcription, tags);
+    console.log(english, russian, transcription, tags);
+    props.saveEditedWord(english, russian, transcription, tags);
     handleChangeState();
   }
 
   useEffect(() => {
     setEnglish(props.english)
-    setTranslation(props.translation)
+    setRussian(props.russian)
     setTranscription(props.transcription)
     setTags(props.tags)
   }, [changeState])
+
+  function deleteWord(id) {
+    const newWordList = context.filter(word => word.id != id)
+    setContext(newWordList)
+  }
 
   return (
     <div className='container__table'>
@@ -47,7 +52,7 @@ export default function Table(props) {
         ? 
         <form className="words-container__table">
         <input type='text' required value={english} onChange={(e) => setEnglish(e.target.value)} className='cell__table-input' placeholder={props.english} name="english"></input>
-        <input type='text' required value={translation} onChange={(e) => setTranslation(e.target.value)} className='cell__table-input' placeholder={props.translation} name="translation"></input>
+        <input type='text' required value={russian} onChange={(e) => setRussian(e.target.value)} className='cell__table-input' placeholder={props.russian} name="russian"></input>
         <input type='text' required value={transcription} onChange={(e) => setTranscription(e.target.value)} className='cell__table-input' placeholder={props.transcription} name="transcription"></input>
         <input type='text' required value={tags} onChange={(e) => setTags(e.target.value)} className='cell__table-input' placeholder={props.tags} name="tags"></input>
         {validateEnglish && <h5>нужно заполнить все поля</h5>}
@@ -56,7 +61,7 @@ export default function Table(props) {
                 
         : <div className="words-container__table">
         <div className='cell__table'>{props.english}</div>
-        <div className='cell__table'>{props.translation}</div>
+        <div className='cell__table'>{props.russian}</div>
         <div className='cell__table'>{props.transcription}</div>
         <div className='cell__table'>{props.tags}</div>
 
@@ -65,7 +70,7 @@ export default function Table(props) {
         ? <div className="container__table-buttons"><button className='save-button__table' type='button' onClick={consoleLogAndClose  }>save</button>
         <button className='cancel-button__table' onClick={handleChangeState}>cancel</button> </div>
         :        <button className='change-button__table' onClick={handleChangeState}>change</button>}
-                            <button className='delete-button__table' onClick={() =>props.deleteWord(props.id)}>del</button>
+                            <button className='delete-button__table' onClick={() =>deleteWord(props.id)}>del</button>
         </div>
     </div>
   )
