@@ -28,8 +28,8 @@ export default function Table(props) {
 
    function consoleLogAndClose(){
     handleValidate();
+    saveEditedWord(english, russian, transcription, tags);
     console.log(english, russian, transcription, tags);
-    props.saveEditedWord(english, russian, transcription, tags);
     handleChangeState();
   }
 
@@ -43,6 +43,20 @@ export default function Table(props) {
   function deleteWord(id) {
     const newWordList = context.filter(word => word.id != id)
     setContext(newWordList)
+  }
+
+    function saveEditedWord(english, russian, trasctiption, tags, id) {
+    const editedWordList = context.map(word => {
+      if (word.id === id) {
+        word.english = english;
+        word.transcription = trasctiption;
+        word.russian = russian;
+        word.tags = tags
+        return word
+      }
+      return word
+    })
+    setContext(editedWordList)
   }
 
   return (
