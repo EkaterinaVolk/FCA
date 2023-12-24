@@ -64,15 +64,21 @@ export default function Table(props) {
         <div className="words-container__table">
         {changeState 
         ? 
-        <form className="words-container__table">
+        <div className="words-container__change">
+        <form className="words-container__inputs">
         <input type='text' required value={english} onChange={(e) => setEnglish(e.target.value)} className='cell__table-input' placeholder={props.english} name="english"></input>
         <input type='text' required value={russian} onChange={(e) => setRussian(e.target.value)} className='cell__table-input' placeholder={props.russian} name="russian"></input>
         <input type='text' required value={transcription} onChange={(e) => setTranscription(e.target.value)} className='cell__table-input' placeholder={props.transcription} name="transcription"></input>
         <input type='text' required value={tags} onChange={(e) => setTags(e.target.value)} className='cell__table-input' placeholder={props.tags} name="tags"></input>
-        {validateEnglish && <h5>нужно заполнить все поля</h5>}
                 {/* не понимаю, почему ошибку выводит сразу при нажатии кнопки Change, когда открываются инпуты */}
         </form>
-                
+        <div className="words-container__table">
+        <div className='cell__table-validation'>{validateEnglish && <span>*fill out</span>}</div>
+        <div className='cell__table-validation'>{validateRussian && <span>*fill out</span>}</div>
+        <div className='cell__table-validation'>{validateTranscription && <span>*fill out</span>}</div>
+        <div className='cell__table-validation'>{validateTags && <span>*fill out</span>}</div>
+        </div>
+       </div>
         : <div className="words-container__table">
         <div className='cell__table'>{props.english}</div>
         <div className='cell__table'>{props.russian}</div>
