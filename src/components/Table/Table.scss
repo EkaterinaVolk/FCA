@@ -2,7 +2,14 @@
 
 .words-container__table{
     display: flex;
-    border-bottom: solid $gray-color 1px;
+
+    max-width: 1000px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.words-container__inputs {
+    display: flex;
     max-width: 1000px;
     padding: 0px;
     margin: 0px;
@@ -24,6 +31,15 @@
     padding: 0px;
     margin: 0px;
     @extend %table-font;
+    border-bottom: solid $gray-color 1px;
+}
+
+.cell__table-validation {
+        width: 160px;
+        padding: 0px;
+        margin: 0px;
+        @extend %table-font-validation;
+        border-radius: 5px;
 }
 
 .cell__table-input {
@@ -33,6 +49,7 @@
     border: none;
     @extend %table-font-inputs;
     background-color: $light-pink-color;
+    border-radius: 5px;
 }
 
 .change-button__table {
