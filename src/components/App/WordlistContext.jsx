@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext } from "react";
+import Loader from "../Loader/Loader";
 export const WordlistContext = createContext();
 
 export function WordlistContextComponent({ children }) {
@@ -19,7 +20,7 @@ export function WordlistContextComponent({ children }) {
     }
   }
 
-  if (!context) return <h1>Loading...</h1>;
+  if (!context) return <Loader/>;
 
   return (
     <WordlistContext.Provider value={value}>
