@@ -12,10 +12,10 @@ export default function Table(props) {
   const [russian, setRussian] = useState('')
   const [transcription, setTranscription] = useState('')
   const [tags, setTags] = useState('')
-  const [validateEnglish, setValidateEnglish] = useState('false')
-  const [validateRussian, setValidateRussian] = useState('false')
-  const [validateTranscription, setValidateTranscription] = useState('false')
-  const [validateTags, setValidateTags] = useState('false')
+  const [validateEnglish, setValidateEnglish] = useState(false)
+  const [validateRussian, setValidateRussian] = useState(false)
+  const [validateTranscription, setValidateTranscription] = useState(false)
+  const [validateTags, setValidateTags] = useState(false)
 
   function handleValidate() {
     if(!english && !russian && !transcription && !tags) {
@@ -70,13 +70,13 @@ export default function Table(props) {
         <input type='text' required value={russian} onChange={(e) => setRussian(e.target.value)} className='cell__table-input' placeholder={props.russian} name="russian"></input>
         <input type='text' required value={transcription} onChange={(e) => setTranscription(e.target.value)} className='cell__table-input' placeholder={props.transcription} name="transcription"></input>
         <input type='text' required value={tags} onChange={(e) => setTags(e.target.value)} className='cell__table-input' placeholder={props.tags} name="tags"></input>
-                {/* не понимаю, почему ошибку выводит сразу при нажатии кнопки Change, когда открываются инпуты */}
+
         </form>
         <div className="words-container__table">
-        <div className='cell__table-validation'>{validateEnglish && <span>*fill out</span>}</div>
-        <div className='cell__table-validation'>{validateRussian && <span>*fill out</span>}</div>
-        <div className='cell__table-validation'>{validateTranscription && <span>*fill out</span>}</div>
-        <div className='cell__table-validation'>{validateTags && <span>*fill out</span>}</div>
+        <div className='cell__table-validation'>{!english && <span>*fill out</span>}</div>
+        <div className='cell__table-validation'>{!russian && <span>*fill out</span>}</div>
+        <div className='cell__table-validation'>{!transcription && <span>*fill out</span>}</div>
+        <div className='cell__table-validation'>{!tags && <span>*fill out</span>}</div>
         </div>
        </div>
         : <div className="words-container__table">
@@ -87,7 +87,12 @@ export default function Table(props) {
 
         </div>}
         {changeState 
-        ? <div className="container__table-buttons"><button className='save-button__table' type='button' onClick={consoleLogAndClose  }>save</button>
+        ? <div className="container__table-buttons">
+          {(!english || !russian || !transcription || !tags)
+
+          ? <button className='save-button__table' type='button' onClick={consoleLogAndClose} disabled="disable">save</button>
+          : <button className='save-button__table' type='button' onClick={consoleLogAndClose}>save</button>}
+
         <button className='cancel-button__table' onClick={handleChangeState}>cancel</button> </div>
         :        <button className='change-button__table' onClick={handleChangeState}>change</button>}
                             <button className='delete-button__table' onClick={() =>deleteWord(props.id)}>del</button>
