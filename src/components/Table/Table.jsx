@@ -1,5 +1,6 @@
 import './Table.scss';
 import { useState, useEffect, useContext } from 'react';
+import Post from '../../services/post.js';
 import {WordlistContext} from '../App/WordlistContext.jsx'
 
 export default function Table(props) {
@@ -42,20 +43,12 @@ export default function Table(props) {
   }, [changeState])
 
 
-  async function postNewWordlist(newWordList) {
-    try {
-      fetch('http://itgirlschool.justmakeit.ru/api/words{id}/delete', {
-        method: 'POST',
-        body: JSON.stringify(newWordList)
-      });
-    } catch (e) {
-      return <NoMatch/>;
-    }
-  }
-
   function deleteWord(id) {
     const newWordList = context.filter(word => word.id != id)
     setContext(newWordList)
+
+    Post.deleteWordServer(id)
+    // слово удаляется только при повторном нажатии на кнопу. не понимаю, что не так
   }
 
 

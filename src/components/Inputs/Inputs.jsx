@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import './Inputs.scss';
 import Heading from '../Heading/Heading';
+import Post from '../../services/post.js';
 import {WordlistContext} from '../App/WordlistContext.jsx'
 
 export default function Inputs() {
@@ -12,15 +13,17 @@ export default function Inputs() {
   const [inputFour, setInputFour] = useState('');
 
   function addNewWord(english, russian, transcription, tags) {
+    const lastId = context[context.length - 1].id
     const newWord = {        
+      id: Number(lastId) + 1,
       english: english,
       transcription: transcription,
       russian: russian,
       tags: tags
     }
     
-    const newWordList = [...context, newWord];
-    setContext(newWordList)
+    setContext(prevState => [...prevState, newWord])
+    Post.addNewWordServer(newWord)
   }
 
   function addNewWordAndShowResult() {

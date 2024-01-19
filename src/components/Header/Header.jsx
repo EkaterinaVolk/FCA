@@ -14,7 +14,6 @@ export default function Header() {
         <div className="nav">
               <Link className="nav-item" to="/">Cards</Link>
               <Link className="nav-item" to="/wordlist">Wordlist</Link>
-             <Link className="nav-item"to="/add">Add</Link>
         </div>
     </div>
     </div>
