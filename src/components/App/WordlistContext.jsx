@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import Loader from "../Loader/Loader";
+import Get from "../../services/get";
 export const WordlistContext = createContext();
 
 export function WordlistContextComponent({ children }) {
@@ -7,20 +8,15 @@ export function WordlistContextComponent({ children }) {
   const value = { context, setContext };
 
   useEffect(() => {
-    getWordlist();
+    getWordlistServer();
   }, []);
 
-  async function getWordlist() {
-    try {
-      const resp = await fetch("http://itgirlschool.justmakeit.ru/api/words");
-      const arrWords = await resp.json();
-      setContext(arrWords);
-    } catch (e) {
-      console.log("ошибка");
-    }
+  async function getWordlistServer() {
+  const WordlistServer = await Get.getWordlist();
+  setContext(WordlistServer)
   }
 
-  if (!context) return <Loader/>;
+   if (!context) return <Loader/>;
 
   return (
     <WordlistContext.Provider value={value}>

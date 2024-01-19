@@ -4,6 +4,7 @@ import {WordlistContext} from '../App/WordlistContext.jsx'
 
 export default function Table(props) {
   const {context, setContext} = useContext(WordlistContext)
+  
  
   const [changeState, setChangeState] = useState(false);
   const handleChangeState = () => {setChangeState(!changeState)} 
@@ -40,10 +41,23 @@ export default function Table(props) {
     setTags(props.tags)
   }, [changeState])
 
+
+  async function postNewWordlist(newWordList) {
+    try {
+      fetch('http://itgirlschool.justmakeit.ru/api/words{id}/delete', {
+        method: 'POST',
+        body: JSON.stringify(newWordList)
+      });
+    } catch (e) {
+      return <NoMatch/>;
+    }
+  }
+
   function deleteWord(id) {
     const newWordList = context.filter(word => word.id != id)
     setContext(newWordList)
   }
+
 
     function saveEditedWord(english, russian, trasctiption, tags, id) {
     const editedWordList = context.map(word => {
