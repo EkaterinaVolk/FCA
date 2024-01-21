@@ -44,26 +44,40 @@ export default function Table(props) {
 
 
   function deleteWord(id) {
+    console.log(id)
     const newWordList = context.filter(word => word.id != id)
     setContext(newWordList)
 
     Post.deleteWordServer(id)
-    // слово удаляется только при повторном нажатии на кнопу. не понимаю, что не так
   }
 
 
-    function saveEditedWord(english, russian, trasctiption, tags, id) {
-    const editedWordList = context.map(word => {
-      if (word.id === id) {
-        word.english = english;
-        word.transcription = trasctiption;
-        word.russian = russian;
-        word.tags = tags
-        return word
-      }
-      return word
-    })
-    setContext(editedWordList)
+  // не получается придумать логику обновления массива при редактировании слова, нужна подсказка, какая здесь должна быть логика
+    function saveEditedWord(id) {
+    // console.log(english, russian, transcription, tags, id)
+    let editedWord = context.find(word => word.id = id); 
+    const newWord = {        
+      id: editedWord.id,
+      english: english,
+      transcription: transcription,
+      russian: russian,
+      tags: tags
+    }
+
+    editedWord = newWord
+
+
+    setContext(prevState => [...prevState, editedWord])
+    // (word => {
+    //   if (word.id === id) {
+    //     word.english = english;
+    //     word.transcription = trasctiption;
+    //     word.russian = russian;
+    //     word.tags = tags
+    //     return word
+    //   }
+    // })
+    // setContext(editedWordList)
   }
 
   return (
@@ -97,8 +111,8 @@ export default function Table(props) {
         ? <div className="container__table-buttons">
           {(!english || !russian || !transcription || !tags)
 
-          ? <button className='save-button__table' type='button' onClick={consoleLogAndClose} disabled="disable">save</button>
-          : <button className='save-button__table' type='button' onClick={consoleLogAndClose}>save</button>}
+          ? <button className='save-button__table' type='button' disabled="disable">save</button>
+          : <button className='save-button__table' type='button' onClick={() => saveEditedWord(props.id)}>save</button>}
 
         <button className='cancel-button__table' onClick={handleChangeState}>cancel</button> </div>
         :        <button className='change-button__table' onClick={handleChangeState}>change</button>}

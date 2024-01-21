@@ -5,8 +5,8 @@ import Inputs from '../Inputs/Inputs.jsx';
 import { useContext } from 'react';
 import {WordlistContext} from '../App/WordlistContext.jsx'
 
-export default function Wordlist({ deleteWord, saveEditedWord}) {
-  const {context, setContext} = useContext(WordlistContext)
+export default function Wordlist() {
+  const {context} = useContext(WordlistContext)
   return (
     <div className='container__wordlist'>
         <Heading className='container__wordlist-heading' text="Wordlist"/>
