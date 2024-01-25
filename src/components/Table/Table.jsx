@@ -54,20 +54,19 @@ export default function Table(props) {
 
   // не получается придумать логику обновления массива при редактировании слова, нужна подсказка, какая здесь должна быть логика
     function saveEditedWord(id) {
-    // console.log(english, russian, transcription, tags, id)
-    let editedWord = context.find(word => word.id = id); 
     const newWord = {        
-      id: editedWord.id,
+      id: id,
       english: english,
       transcription: transcription,
       russian: russian,
       tags: tags
     }
 
-    editedWord = newWord
+    const Index = context.findIndex(item => item.id === newWord.id);
+    context[Index] = newWord;
 
 
-    setContext(prevState => [...prevState, editedWord])
+    setContext([...context])
     // (word => {
     //   if (word.id === id) {
     //     word.english = english;
