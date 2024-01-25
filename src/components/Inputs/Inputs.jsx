@@ -1,11 +1,13 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import './Inputs.scss';
 import Heading from '../Heading/Heading';
 import Post from '../../services/post.js';
-import {WordlistContext} from '../App/WordlistContext.jsx'
+import { useEffect } from "react";
+import {observer, inject} from "mobx-react";
 
-export default function Inputs() {
-  const {context, setContext} = useContext(WordlistContext)
+
+function Inputs({wordlist}) {
+
 
   const [inputOne, setInputOne] = useState('');
   const [inputTwo, setInputTwo] = useState('');
@@ -13,7 +15,7 @@ export default function Inputs() {
   const [inputFour, setInputFour] = useState('');
 
   function addNewWord(english, russian, transcription, tags) {
-    const lastId = context[context.length - 1].id
+    const lastId = wordlist[wordlist.length - 1].id
     const newWord = {        
       id: Number(lastId) + 1,
       english: english,
@@ -22,7 +24,7 @@ export default function Inputs() {
       tags: tags
     }
     
-    setContext(prevState => [...prevState, newWord])
+    // setContext(prevState => [...prevState, newWord])
     Post.addNewWordServer(newWord)
   }
 
@@ -30,7 +32,7 @@ export default function Inputs() {
     if(inputOne && inputTwo && inputThree && inputFour) {
     addNewWord(inputOne, inputTwo, inputThree, inputFour)
     }
-    console.log(context)
+    console.log(wordlist)
     setInputOne('')
     setInputTwo('')
     setInputThree('')
@@ -50,3 +52,16 @@ export default function Inputs() {
     </div>
   )
 }
+
+export default inject(({wordlistStore}) => {
+  const {wordlist, add, isLoaded} = wordlistStore; 
+
+  useEffect(() => {
+    wordlistStore.loadData();
+
+}, []);
+
+  return {
+    wordlist, add
+  }; 
+  }) (observer(Inputs))

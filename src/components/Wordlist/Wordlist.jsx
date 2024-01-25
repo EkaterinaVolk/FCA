@@ -2,16 +2,29 @@ import './Wordlist.scss';
 import Heading from '../Heading/Heading';
 import Table from '../Table/Table';
 import Inputs from '../Inputs/Inputs.jsx';
-import { useContext } from 'react';
-import {WordlistContext} from '../App/WordlistContext.jsx'
+import { useEffect } from "react";
+import {observer, inject} from "mobx-react";
 
-export default function Wordlist() {
-  const {context} = useContext(WordlistContext)
+function Wordlist({wordlist}) {
+
   return (
     <div className='container__wordlist'>
         <Heading className='container__wordlist-heading' text="Wordlist"/>
-        {context.map((word, index) =>  <Table key={index} {...word}/>)}
+        {/* {wordlist.map((word, index) =>  <Table key={index} {...word}/>)} */}
         <Inputs/>
     </div>
   )
 }
+
+export default inject(({wordlistStore}) => {
+  const {wordlist, add, isLoaded, loadData} = wordlistStore; 
+
+useEffect(() => {
+      loadData();
+  
+}, []);
+
+  return {
+    wordlist, add
+  }; 
+  }) (observer(Wordlist))

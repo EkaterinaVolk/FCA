@@ -2,12 +2,18 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './components/App/App'
 import './style/index.scss'
-import { WordlistContextComponent } from './components/App/WordlistContext'
+import { Provider } from 'mobx-react';
+import WordlistStore from './stores/WordlistStore';
+
+
+const stores = {
+  wordlistStore: new WordlistStore()
+} 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <WordlistContextComponent>
+   <Provider {...stores}>
     <App />
-    </WordlistContextComponent>
+    </Provider>,
   </React.StrictMode>,
 )

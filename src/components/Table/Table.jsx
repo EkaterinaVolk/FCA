@@ -1,10 +1,10 @@
 import './Table.scss';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import Post from '../../services/post.js';
-import {WordlistContext} from '../App/WordlistContext.jsx'
+import {observer, inject} from "mobx-react";
 
-export default function Table(props) {
-  const {context, setContext} = useContext(WordlistContext)
+function Table({wordlist}, props) {
+
   
  
   const [changeState, setChangeState] = useState(false);
@@ -45,8 +45,8 @@ export default function Table(props) {
 
   function deleteWord(id) {
     console.log(id)
-    const newWordList = context.filter(word => word.id != id)
-    setContext(newWordList)
+    const newWordList = wordlist.filter(word => word.id != id)
+    // setContext(newWordList)
 
     Post.deleteWordServer(id)
   }
@@ -62,11 +62,11 @@ export default function Table(props) {
       tags: tags
     }
 
-    const Index = context.findIndex(item => item.id === newWord.id);
-    context[Index] = newWord;
+    const Index = wordlist.findIndex(item => item.id === newWord.id);
+    wordlist[Index] = newWord;
 
 
-    setContext([...context])
+    // setContext([...context])
     // (word => {
     //   if (word.id === id) {
     //     word.english = english;
@@ -121,3 +121,15 @@ export default function Table(props) {
   )
 }
 
+export default inject(({wordlistStore}) => {
+  const {wordlist, add, isLoaded} = wordlistStore; 
+
+  useEffect(() => {
+    wordlistStore.loadData();
+
+}, []);
+
+  return {
+    wordlist, add
+  }; 
+  }) (observer(Table))
