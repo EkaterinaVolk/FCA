@@ -5,12 +5,15 @@ import Inputs from '../Inputs/Inputs.jsx';
 import { useEffect } from "react";
 import {observer, inject} from "mobx-react";
 
-function Wordlist({wordlist}) {
+function Wordlist({wordlist, isLoaded}) {
+//   if(isLoaded) {
+//     return;
+// }
 
   return (
     <div className='container__wordlist'>
         <Heading className='container__wordlist-heading' text="Wordlist"/>
-        {/* {wordlist.map((word, index) =>  <Table key={index} {...word}/>)} */}
+        {wordlist.map((word, index) =>  <Table key={index} {...word}/>)}
         <Inputs/>
     </div>
   )
@@ -22,9 +25,9 @@ export default inject(({wordlistStore}) => {
 useEffect(() => {
       loadData();
   
-}, []);
+});
 
   return {
-    wordlist, add
+    wordlist, add, isLoaded
   }; 
   }) (observer(Wordlist))

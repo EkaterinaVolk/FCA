@@ -6,9 +6,7 @@ import { useEffect } from "react";
 import {observer, inject} from "mobx-react";
 
 
-function Inputs({wordlist}) {
-
-
+function Inputs({wordlist, add}) {
   const [inputOne, setInputOne] = useState('');
   const [inputTwo, setInputTwo] = useState('');
   const [inputThree, setInputThree] = useState('');
@@ -23,8 +21,7 @@ function Inputs({wordlist}) {
       russian: russian,
       tags: tags
     }
-    
-    // setContext(prevState => [...prevState, newWord])
+    add(newWord);
     Post.addNewWordServer(newWord)
   }
 
@@ -38,7 +35,9 @@ function Inputs({wordlist}) {
     setInputThree('')
     setInputFour('')
   }
-  
+//   if(isLoaded) {
+//     return;
+// }
   return (
     <div className='container__inputs'>
        <Heading text="Add a new word"/>
@@ -62,6 +61,6 @@ export default inject(({wordlistStore}) => {
 }, []);
 
   return {
-    wordlist, add
+    wordlist, add, isLoaded
   }; 
   }) (observer(Inputs))

@@ -3,10 +3,8 @@ import { useState, useEffect } from 'react';
 import Post from '../../services/post.js';
 import {observer, inject} from "mobx-react";
 
-function Table({wordlist}, props) {
+function Table(props, {wordlist, remove, update}) {
 
-  
- 
   const [changeState, setChangeState] = useState(false);
   const handleChangeState = () => {setChangeState(!changeState)} 
   
@@ -43,10 +41,15 @@ function Table({wordlist}, props) {
   }, [changeState])
 
 
-  function deleteWord(id) {
-    console.log(id)
-    const newWordList = wordlist.filter(word => word.id != id)
-    // setContext(newWordList)
+  function deleteWord(id, wordlist) {
+    console.log(wordlist)
+    // remove(id);
+    const newWordlist = wordlist.filter(word => word.id != id);
+    update(newWordlist);
+
+
+    // const newWordList = wordlist.filter(word => word.id != id)
+    // // setContext(newWordList)
 
     Post.deleteWordServer(id)
   }
@@ -78,7 +81,9 @@ function Table({wordlist}, props) {
     // })
     // setContext(editedWordList)
   }
-
+  // if(isLoaded) {
+  //   return;
+  // }
   return (
     <div className='container__table'>
         <div className="words-container__table">
@@ -122,7 +127,7 @@ function Table({wordlist}, props) {
 }
 
 export default inject(({wordlistStore}) => {
-  const {wordlist, add, isLoaded} = wordlistStore; 
+  const {wordlist, add, isLoaded, remove, update} = wordlistStore; 
 
   useEffect(() => {
     wordlistStore.loadData();
@@ -130,6 +135,6 @@ export default inject(({wordlistStore}) => {
 }, []);
 
   return {
-    wordlist, add
+    wordlist, add, isLoaded, remove
   }; 
   }) (observer(Table))

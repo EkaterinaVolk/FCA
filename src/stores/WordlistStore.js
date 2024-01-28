@@ -2,6 +2,7 @@ import {makeAutoObservable, runInAction} from 'mobx';
 
 export default class WordlistStore {
     isLoaded = false
+    
 
     wordlist = [];
 
@@ -13,16 +14,33 @@ export default class WordlistStore {
         this.wordlist.push(word);
     }
 
-    delete = (index) => {
-        this.wordlist.splice(index, 1)
+    remove = (id) => {
+        this.wordlist.filter(word => word.id != id);
+    }
+
+    update = (list) => {
+        this.wordlist = list;
     }
 
     loadData = async () => {
-        const resp = await fetch("http://itgirlschool.justmakeit.ru/api/words");
-        const data = resp.json();
-        console.log(resp)
-        console.log(data)
-        this.wordlist = data;
-       
-    }
+        if(this.isLoaded) {
+            return;
+        }
+        fetch("http://itgirlschool.justmakeit.ru/api/words")
+        .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            runInAction(() => {
+                this.wordlist = data;
+                console.log(data)
+                this.isLoaded = true;
+              })
+          })
+          .catch((err) => {
+            console.log('Ошибка', err);
+          });
+   }
 }
+
+
