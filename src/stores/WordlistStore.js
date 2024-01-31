@@ -1,46 +1,45 @@
 import {makeAutoObservable, runInAction} from 'mobx';
 
 export default class WordlistStore {
-    isLoaded = false
-    
-
+    isLoaded = false;
     wordlist = [];
-
+  
     constructor() {
-        makeAutoObservable(this);
+      makeAutoObservable(this);
     }
- 
+  
     add = (word) => {
-        this.wordlist.push(word);
-    }
-
+      this.wordlist.push(word);
+    };
+  
     remove = (id) => {
-        this.wordlist.filter(word => word.id != id);
-    }
-
+      this.wordlist = this.wordlist.filter(word => word.id !== id);
+    };
+  
     update = (list) => {
-        this.wordlist = list;
-    }
-
+      this.wordlist = list;
+    };
+  
     loadData = async () => {
-        if(this.isLoaded) {
-            return;
-        }
-        fetch("http://itgirlschool.justmakeit.ru/api/words")
-        .then((res) => {
-            return res.json();
-          })
-          .then((data) => {
-            runInAction(() => {
-                this.wordlist = data;
-                console.log(data)
-                this.isLoaded = true;
-              })
-          })
-          .catch((err) => {
-            console.log('Ошибка', err);
-          });
-   }
-}
+      if (this.isLoaded) {
+        return;
+      }
+  
+      try {
+        const response = await fetch("http://itgirlschool.justmakeit.ru/api/words");
+        const data = await response.json();
+        
+        runInAction(() => {
+          this.wordlist = data;
+          this.isLoaded = true;
+        });
+      } catch (error) {
+        console.error('Ошибка', error);
+        runInAction(() => {
+          this.isLoaded = true;
+        });
+      }
+    };
+  }
 
 
