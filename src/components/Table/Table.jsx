@@ -5,11 +5,7 @@ import {WordlistContext} from '../App/WordlistContext.jsx'
 
 export default function Table(props) {
   const {context, setContext} = useContext(WordlistContext)
-  
- 
   const [changeState, setChangeState] = useState(false);
-  const handleChangeState = () => {setChangeState(!changeState)} 
-  
   const [english, setEnglish] = useState('')
   const [russian, setRussian] = useState('')
   const [transcription, setTranscription] = useState('')
@@ -18,6 +14,15 @@ export default function Table(props) {
   const [validateRussian, setValidateRussian] = useState(false)
   const [validateTranscription, setValidateTranscription] = useState(false)
   const [validateTags, setValidateTags] = useState(false)
+
+  useEffect(() => {
+    setEnglish(props.english)
+    setRussian(props.russian)
+    setTranscription(props.transcription)
+    setTags(props.tags)
+  }, [changeState])
+
+  const handleChangeState = () => {setChangeState(!changeState)} 
 
   function handleValidate() {
     if(!english && !russian && !transcription && !tags) {
@@ -28,21 +33,6 @@ export default function Table(props) {
     }
   }
 
-   function consoleLogAndClose(){
-    handleValidate();
-    saveEditedWord(english, russian, transcription, tags);
-    console.log(english, russian, transcription, tags);
-    handleChangeState();
-  }
-
-  useEffect(() => {
-    setEnglish(props.english)
-    setRussian(props.russian)
-    setTranscription(props.transcription)
-    setTags(props.tags)
-  }, [changeState])
-
-
   function deleteWord(id) {
     console.log(id)
     const newWordList = context.filter(word => word.id != id)
@@ -50,10 +40,8 @@ export default function Table(props) {
 
     Post.deleteWordServer(id)
   }
-
-
-  // не получается придумать логику обновления массива при редактировании слова, нужна подсказка, какая здесь должна быть логика
-    function saveEditedWord(id) {
+  
+  function saveEditedWord(id) {
     const newWord = {        
       id: id,
       english: english,
@@ -62,23 +50,19 @@ export default function Table(props) {
       tags: tags
     }
 
-    const Index = context.findIndex(item => item.id === newWord.id);
-    context[Index] = newWord;
-
-
-    setContext([...context])
-    // (word => {
-    //   if (word.id === id) {
-    //     word.english = english;
-    //     word.transcription = trasctiption;
-    //     word.russian = russian;
-    //     word.tags = tags
-    //     return word
-    //   }
-    // })
-    // setContext(editedWordList)
-  }
-
+      const newContext = context.map(item => {
+        if (item.id === id) {
+          return { ...item, ...newWord };
+        }
+        return item;
+      });
+    
+      setContext([...newContext])
+      Post.updateWordServer(id, newWord)
+      handleChangeState()
+    }
+    
+    
   return (
     <div className='container__table'>
         <div className="words-container__table">
@@ -98,7 +82,7 @@ export default function Table(props) {
         <div className='cell__table-validation'>{!transcription && <span>*fill out</span>}</div>
         <div className='cell__table-validation'>{!tags && <span>*fill out</span>}</div>
         </div>
-       </div>
+        </div>
         : <div className="words-container__table">
         <div className='cell__table'>{props.english}</div>
         <div className='cell__table'>{props.russian}</div>
