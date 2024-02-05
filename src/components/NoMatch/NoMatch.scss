@@ -1,29 +1,29 @@
-@import './../../style/fonts';
+@import "./../../style/fonts";
 
 .container__nomatch {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 1;
-    padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  padding-top: 100px;
 }
 
 .nomatch__text {
-    text-align: center;
-    margin-top: 0;
-    padding: 15px;
-    width: 100%;
-    background-color: $bright-pink-color;
-    @extend %main-words-font;
+  text-align: center;
+  margin-top: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: $bright-pink-color;
+  @extend %main-words-font;
 }
 
 .nomatch__img {
-    background-image: url(../../assets/404.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    margin-bottom: -70px;
-    margin-top: 30px;
-    height: 200px;
-    width: 70%;
+  background-image: url(../../assets/404.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-bottom: -70px;
+  margin-top: 30px;
+  height: 200px;
+  width: 70%;
 }

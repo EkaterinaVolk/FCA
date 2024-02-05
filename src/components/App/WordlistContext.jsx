@@ -12,11 +12,11 @@ export function WordlistContextComponent({ children }) {
   }, []);
 
   async function getWordlistServer() {
-  const WordlistServer = await Get.getWordlist();
-  setContext(WordlistServer)
+    const WordlistServer = await Get.getWordlist();
+    setContext(WordlistServer);
   }
 
-   if (!context) return <Loader/>;
+  if (!context) return <Loader />;
 
   return (
     <WordlistContext.Provider value={value}>

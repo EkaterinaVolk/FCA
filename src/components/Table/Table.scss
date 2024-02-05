@@ -1,104 +1,102 @@
-@import './../../style/fonts';
+@import "./../../style/fonts";
 
-.words-container__table{
-    display: flex;
+.words-container__table {
+  display: flex;
 
-    max-width: 1000px;
-    padding: 0px;
-    margin: 0px;
+  max-width: 1000px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .words-container__inputs {
-    display: flex;
-    max-width: 1000px;
-    padding: 0px;
-    margin: 0px;
+  display: flex;
+  max-width: 1000px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .container__table-buttons {
-    display: flex;
+  display: flex;
 }
 .container__table {
-    display: flex;
-    justify-content: center;
-    max-width: 1000px;
-    padding: 0px;
-    margin: 0px;
+  display: flex;
+  justify-content: center;
+  max-width: 1000px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .cell__table {
-    width: 160px;
-    padding: 0px;
-    margin: 0px;
-    @extend %table-font;
-    border-bottom: solid $gray-color 1px;
+  width: 160px;
+  padding: 0px;
+  margin: 0px;
+  @extend %table-font;
+  border-bottom: solid $gray-color 1px;
 }
 
 .cell__table-validation {
-        width: 160px;
-        padding: 0px;
-        margin: 0px;
-        @extend %table-font-validation;
-        border-radius: 5px;
+  width: 160px;
+  padding: 0px;
+  margin: 0px;
+  @extend %table-font-validation;
+  border-radius: 5px;
 }
 
 .cell__table-input {
-    width: 160px;
-    padding: 0px;
-    margin: 0px;
-    border: none;
-    @extend %table-font-inputs;
-    background-color: $light-pink-color;
-    border-radius: 5px;
+  width: 160px;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  @extend %table-font-inputs;
+  background-color: $light-pink-color;
+  border-radius: 5px;
 }
 
 .change-button__table {
-    width: 140px;
-    cursor: pointer;
-    background-color: $light-pink-color;
-    border-radius: 5px;
-    border: $gray-color solid 1px;
-    @extend %table-font-button;
-    margin: 3px 0px 3px 0px;
+  width: 140px;
+  cursor: pointer;
+  background-color: $light-pink-color;
+  border-radius: 5px;
+  border: $gray-color solid 1px;
+  @extend %table-font-button;
+  margin: 3px 0px 3px 0px;
 }
 
 .save-button__table {
-    width: 70px;
-    cursor: pointer;
-    background-color: $bright-pink-color;
-    border-radius: 5px;
-    border: $gray-color solid 1px;
-    @extend %table-font-button;
-    margin: 3px 0px 3px 0px;
+  width: 70px;
+  cursor: pointer;
+  background-color: $bright-pink-color;
+  border-radius: 5px;
+  border: $gray-color solid 1px;
+  @extend %table-font-button;
+  margin: 3px 0px 3px 0px;
 }
 
 .save-button__table:disabled {
-    width: 70px;
-    background-color: $gray-color;
-    border-radius: 5px;
-    border: $gray-color solid 1px;
-    @extend %table-font-button;
-    margin: 3px 0px 3px 0px;
+  width: 70px;
+  background-color: $gray-color;
+  border-radius: 5px;
+  border: $gray-color solid 1px;
+  @extend %table-font-button;
+  margin: 3px 0px 3px 0px;
 }
 
 .cancel-button__table {
-    width: 70px;
-    cursor: pointer;
-    background-color: $light-gray-color;
-    border-radius: 5px;
-    border: $gray-color solid 1px;
-    @extend %table-font-button;
-    margin: 3px 0px 3px 0px;
+  width: 70px;
+  cursor: pointer;
+  background-color: $light-gray-color;
+  border-radius: 5px;
+  border: $gray-color solid 1px;
+  @extend %table-font-button;
+  margin: 3px 0px 3px 0px;
 }
 
 .delete-button__table {
-    width: 50px;
-    cursor: pointer;
-    background-color: $red-color;
-    border-radius: 5px;
-    border: $gray-color solid 1px;
-    @extend %table-font-del;
-    margin: 3px 0px 3px 2px;
+  width: 50px;
+  cursor: pointer;
+  background-color: $red-color;
+  border-radius: 5px;
+  border: $gray-color solid 1px;
+  @extend %table-font-del;
+  margin: 3px 0px 3px 2px;
 }
-
-

@@ -1,14 +1,13 @@
-@import './../../style/fonts';
+@import "./../../style/fonts";
 
 .container__heading {
-    padding-top:  20px;
-    padding-bottom:  20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-
 .heading {
-    @extend %header-wordlist-font;
-    text-align: center;
-    margin: 0px;
-    width: 100%;
+  @extend %header-wordlist-font;
+  text-align: center;
+  margin: 0px;
+  width: 100%;
 }
