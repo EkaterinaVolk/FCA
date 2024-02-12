@@ -13,6 +13,7 @@
   max-width: 1000px;
   padding: 0px;
   margin: 0px;
+
 }
 
 .container__table-buttons {
@@ -50,6 +51,7 @@
   @extend %table-font-inputs;
   background-color: $light-pink-color;
   border-radius: 5px;
+
 }
 
 .change-button__table {

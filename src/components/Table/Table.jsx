@@ -51,7 +51,6 @@ export default function Table(props) {
       russian: russian,
       tags: tags,
     };
-
     const newContext = context.map((item) => {
       if (item.id === id) {
         return { ...item, ...newWord };
