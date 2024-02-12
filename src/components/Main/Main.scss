@@ -1,24 +1,24 @@
-@import './../../style/fonts';
+@import "./../../style/fonts";
 
 .container__main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 1;
-    padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  padding-top: 100px;
 }
 
 .container__main-cards {
-    display: flex;
+  display: flex;
 }
 
 .button__main {
-    border: none;
-    background-color: $white-color;
-    width: 100px;
-    cursor: pointer;
+  border: none;
+  background-color: $white-color;
+  width: 100px;
+  cursor: pointer;
 }
 
 .score {
-    @extend %score-font;
+  @extend %score-font;
 }

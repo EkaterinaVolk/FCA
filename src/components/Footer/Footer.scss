@@ -1,14 +1,14 @@
-@import './../../style/fonts';
+@import "./../../style/fonts";
 
 .container__footer {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    height: 70px;
-    width: 100%;
-    background-color: $bright-pink-color;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  background-color: $bright-pink-color;
 }
 
 .telegram__footer {
-    margin-right: 50px;
+  margin-right: 50px;
 }

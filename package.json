@@ -1,6 +1,7 @@
 {
   "name": "fca",
   "private": true,
+  "proxy": "http://itgirlschool.justmakeit.ru",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -25,4 +26,5 @@
     "sass": "^1.69.5",
     "vite": "^5.0.0"
   }
+
 }

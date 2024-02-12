@@ -1,6 +1,6 @@
 @import "./../../style/fonts";
 
-.container__nomatch {
+.container__error {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@
   padding-top: 100px;
 }
 
-.nomatch__text {
+.error__text {
   text-align: center;
   margin-top: 0;
   padding: 15px;
@@ -17,7 +17,7 @@
   @extend %main-words-font;
 }
 
-.nomatch__img {
+.error__img {
   background-image: url(../../assets/404.png);
   background-repeat: no-repeat;
   background-position: center;

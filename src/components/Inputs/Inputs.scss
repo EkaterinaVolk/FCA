@@ -1,43 +1,42 @@
-@import './../../style/fonts';
-
+@import "./../../style/fonts";
 
 .container__inputs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 1;
-    padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .inputs-container__inputs {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    width: 800px;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 800px;
+  justify-content: space-around;
 }
 
 .input {
-    width: 120px;
-    height: 30px;
-    padding: 0px;
-    @extend %table-font
+  width: 120px;
+  height: 30px;
+  padding: 0px;
+  @extend %table-font;
 }
 
-.button__inputs  {
-    background-image: url(../../assets/red.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border: none;
-    width: 150px;
-    height: 50px;
-    background-color: white;
-    @extend %button-font;
-    cursor: pointer;
+.button__inputs {
+  background-image: url(../../assets/red.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: none;
+  width: 150px;
+  height: 50px;
+  background-color: white;
+  @extend %button-font;
+  cursor: pointer;
 }
 
 .button__inputs:hover {
-    background-image: url(../../assets/pink.svg);
-    
+  background-image: url(../../assets/pink.svg);
 }
