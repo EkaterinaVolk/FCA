@@ -5,4 +5,12 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: "/FCA/",
   plugins: [react()],
+    server: {
+    proxy: {
+      '/api': {
+        target: 'https://itgirlschool.justmakeit.ru/',
+        changeOrigin: true,
+      },
+    },
+  },
 })
