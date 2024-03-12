@@ -2,7 +2,7 @@ class Post {
   static async addNewWordServer(obj) {
     try {
       const resp = await fetch(
-        "http://itgirlschool.justmakeit.ru/api/words/add",
+        "https://itgirlschool.justmakeit.ru/api/words/add",
         {
           method: "POST",
           body: JSON.stringify(obj),
@@ -17,7 +17,7 @@ class Post {
   static async updateWordServer(id, obj) {
     try {
       const resp = await fetch(
-        `http://itgirlschool.justmakeit.ru/api/words/${id}/update`,
+        `https://itgirlschool.justmakeit.ru/api/words/${id}/update`,
         {
           method: "POST",
           body: JSON.stringify(obj),
@@ -32,7 +32,7 @@ class Post {
   static async deleteWordServer(id) {
     try {
       const resp = await fetch(
-        `http://itgirlschool.justmakeit.ru/api/words/${id}/delete`,
+        `https://itgirlschool.justmakeit.ru/api/words/${id}/delete`,
         {
           method: "POST",
         }
