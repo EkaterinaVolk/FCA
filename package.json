@@ -2,7 +2,7 @@
   "homepage": "https://ekaterinavolk.github.io/FCA/",
   "name": "fca",
   "private": true,
-  "proxy": "http://itgirlschool.justmakeit.ru",
+  "proxy": "https://itgirlschool.justmakeit.ru",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
